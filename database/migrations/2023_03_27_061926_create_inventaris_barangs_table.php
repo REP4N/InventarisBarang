@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('inventaris_barangs', function (Blueprint $table) {
             $table->id();
+            $table->string('fullname',100);
+            $table->enum('gender',['M','F']);
+            $table->string('address',100);
+            $table->string('emailaddress',100);
+            $table->char('phone',20);
+            $table->primary('id');
             $table->timestamps();
         });
     }

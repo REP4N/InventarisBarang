@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class InventarisBarang extends Model
 {
     use HasFactory;
+
+    protected $table = 'Barang';
+    protected $primarykey = 'idBarang';
+
+    public $incrementing = false;
+    public $timestamps = true;
 }
