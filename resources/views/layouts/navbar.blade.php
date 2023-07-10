@@ -37,6 +37,13 @@
         </div>
       </li>
 
+      <div class="navbar-nav">
+        <div class="nav-item text-nowrap">
+
+            <a class="nav-link px-3" href="{{ route('logout') }}">Sign out @auth{{ auth()->user()->name }}@endauth</a>
+
+        </div>
+
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">

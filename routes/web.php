@@ -23,20 +23,21 @@ Route::get('/', function () {
     return view('home');
 });
 
-// Route::get('/admin', function () {
-//     return view('admin/dashboard_admin');
-// });
+Route::get('/admin', function () {
+    return view('admin/dashboard_admin');
+});
 
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('post-login', [AuthController::class, 'postLogin'])->name('login.post');
 Route::get('registration', [AuthController::class, 'registration'])->name('register');
 Route::post('post-registration', [AuthController::class, 'postRegistration'])->name('register.post');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 //Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware('auth', 'admin');
 
 
-Route::middleware('auth', 'admin')->group(function () {
-    Route::get('dashboard', [AuthController::class, 'dashboard']);
-    Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+// Route::middleware('auth', 'admin')->group(function () {
+//     Route::get('dashboard', [AuthController::class, 'dashboard']);
+//     Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::controller(UserController::class)->name('user.')->group(function () {
         Route::get('/user/view', 'getUser')->name('getUser');
@@ -64,4 +65,4 @@ Route::middleware('auth', 'admin')->group(function () {
         Route::patch('/kehadiran/update/{kehadiran}', 'updateKehadiran')->name('updateKehadiran');
         Route::delete('/kehadiran/hapus/{kehadiran}', 'deleteKehadiran')->name('deleteKehadiran');
     });
-});
+// });
